@@ -1,0 +1,200 @@
+:root {
+  --ink: #12303a;
+  --sky: #eef3f2;
+  --saffron: #e09f3e;
+  --saffron-kursor: #1f218c;
+  --saffron-dark: #c98a2c;
+  --lake: #1f7a8c;
+  --white: #ffffff;
+  --nav-text: #dbe8e6;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background: var(--sky);
+  line-height: 1.65;
+}
+
+h1,
+h2,
+h3,
+.navbar-brand,
+.btn {
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+}
+
+/*Navigation (position: sticky)*/
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--ink);
+}
+
+.site-nav .nav-link {
+  color: var(--nav-text);
+}
+
+.site-nav .nav-link:hover,
+.site-nav .nav-link.active {
+  color: var(--saffron);
+}
+
+/*Hero (position: relative + absolute badge)*/
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 60vh;
+  color: var(--white);
+  background: linear-gradient(135deg, #12303a 0%, #1f7a8c 60%, #e09f3e 130%);
+}
+
+.hero .badge-alt {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 2rem;
+  color: var(--ink);
+  background: var(--saffron);
+}
+
+#intro {
+  max-width: 60ch;
+}
+
+/*Buttons*/
+.btn-saffron {
+  border: 0;
+  color: var(--ink);
+  font-weight: bold;
+  background: var(--saffron);
+}
+
+.btn-saffron:hover {
+  background: var(--saffron-dark);
+}
+
+/*Flexbox: feature cards*/
+.feature-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.feature-row .feature {
+  flex: 1 1 220px;
+  padding: 1.2rem;
+  border-left: 5px solid var(--saffron);
+  background: var(--white);
+}
+
+/*Colour tiles (placeholders)*/
+.tile {
+  display: flex;
+  align-items: flex-end;
+  aspect-ratio: 4 / 3;
+  padding: 0.8rem;
+  border-radius: 0.4rem;
+  color: var(--white);
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+.t1 { background: linear-gradient(160deg, #1f7a8c, #12303a); }
+.t2 { background: linear-gradient(160deg, #e09f3e, #8a5a14); }
+.t3 { background: linear-gradient(160deg, #5b8c5a, #1d3d2b); }
+.t4 { background: linear-gradient(160deg, #9db4c0, #3d5a6c); }
+.t5 { background: linear-gradient(160deg, #c8553d, #5c1f14); }
+.t6 { background: linear-gradient(160deg, #2b4c7e, #0b1b33); }
+
+/*Grid: gallery*/
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 220px;
+  gap: 1rem;
+}
+
+.gallery-grid .wide {
+  grid-column: span 2;
+}
+
+.gallery-grid figure {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 0.4rem;
+}
+
+.gallery-grid img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-grid figcaption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0.5rem 0.8rem;
+  color: var(--white);
+  font-family: "Trebuchet MS", sans-serif;
+  background: rgba(18, 48, 58, 0.65);
+}
+
+.gallery-grid .tile {
+  height: 100%;
+  aspect-ratio: auto;
+}
+
+/*Table and form*/
+table caption {
+  caption-side: top;
+  font-family: "Trebuchet MS", sans-serif;
+  font-weight: bold;
+}
+
+#contact-form label {
+  font-weight: bold;
+}
+
+footer {
+  color: var(--nav-text);
+  background: var(--ink);
+}
+
+
+/* Tablet */
+@media (max-width: 992px) {
+  .hero {
+    min-height: 50vh;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero .badge-alt {
+    position: static;
+    display: inline-block;
+    margin-top: 1rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid .wide {
+    grid-column: span 1;
+  }
+}
